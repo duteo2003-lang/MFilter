@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "homepage": "https://yourusername.github.io/MFilter",
+  "homepage": "https://duteo2003-lang.github.io/MFilter/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

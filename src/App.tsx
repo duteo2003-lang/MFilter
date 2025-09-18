@@ -98,7 +98,7 @@ function LinksPage() {
                             {l.title}
                         </a>
                         <div className="meta">
-                            <span className="url">{l.url}</span>
+                            <span >{l.url}</span>
                             <div className="badges">
                                 {(l.tags || []).map((tg) => (
                                     <span key={tg} className="badge">{tg}</span>
