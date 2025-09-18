@@ -7,8 +7,8 @@ tags?: string[]
 
 
 export const LINKS: LinkItem[] = [
-{ id: '1', title: 'React', url: '/react', tags: ['framework', 'ui'] },
-{ id: '2', title: 'Vite', url: 'https://vitejs.dev', tags: ['build', 'tool'] },
+{ id: '1', title: 'Vite', url: 'https://vitejs.dev', tags: ['build', 'tool'] },
+{ id: '2', title: 'React', url: '/react', tags: ['framework', 'ui'] },
 { id: '3', title: 'TypeScript', url: 'https://www.typescriptlang.org', tags: ['language'] },
 { id: '4', title: 'MDN Web Docs', url: 'https://developer.mozilla.org', tags: ['docs'] },
 { id: '5', title: 'Stack Overflow', url: 'https://stackoverflow.com', tags: ['community'] },
