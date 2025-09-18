@@ -116,9 +116,9 @@ function LinksPage() {
 
 function App() {
     return (
-        <Router basename="/">
+        <Router >
             <Routes>
-                <Route path="/" index element={<LinksPage />} />
+                <Route  path="/" index element={<LinksPage />} />
                 <Route path="/react" element={<ReactTestPage />} />
             </Routes>
         </Router>
