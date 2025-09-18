@@ -1,5 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import { LINKS, LinkItem } from './data'
+import ReactTestPage from './ReactTestPage'
 
 // Custom hook for debouncing
 function useDebounce<T>(value: T, delay: number): T {
@@ -18,10 +20,18 @@ function useDebounce<T>(value: T, delay: number): T {
     return debouncedValue
 }
 
-function App() {
+function LinksPage() {
     const [query, setQuery] = useState('')
     const [selectedTag, setSelectedTag] = useState<string | null>(null)
     const debouncedQuery = useDebounce(query, 300)
+
+    // Helper function to convert relative URLs to absolute URLs
+    const getAbsoluteUrl = (url: string) => {
+        if (url.startsWith('/')) {
+            return `${window.location.origin}${url}`
+        }
+        return url
+    }
 
     const tags = useMemo(() => {
         const s = new Set<string>()
@@ -46,8 +56,10 @@ function App() {
             <header>
                 <h1>Links — filter & search</h1>
                 <p className="muted">Search by title, URL or tag. Click a tag to filter.</p>
+                <nav className="nav-links">
+                    <Link to="/react" className="nav-link">React Test Page</Link>
+                </nav>
             </header>
-
 
             <div className="controls">
                 <input
@@ -57,7 +69,6 @@ function App() {
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                 />
-
 
                 <div className="tagRow" role="toolbar" aria-label="Tag filters">
                     <button
@@ -78,14 +89,12 @@ function App() {
                 </div>
             </div>
 
-
             <p className="count">{filtered.length} / {LINKS.length} links</p>
-
 
             <ul className="list" role="list">
                 {filtered.map((l: LinkItem) => (
                     <li key={l.id} className="listItem">
-                        <a href={l.url} target="_blank" rel="noopener noreferrer" >
+                        <a href={getAbsoluteUrl(l.url)} rel="noopener noreferrer" className="title">
                             {l.title}
                         </a>
                         <div className="meta">
@@ -100,9 +109,19 @@ function App() {
                 ))}
             </ul>
 
-
             <footer className="foot muted">Built with Vite + React + TypeScript</footer>
         </div>
+    )
+}
+
+function App() {
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<LinksPage />} />
+                <Route path="/react" element={<ReactTestPage />} />
+            </Routes>
+        </Router>
     )
 }
 

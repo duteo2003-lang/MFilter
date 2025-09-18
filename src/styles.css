@@ -13,7 +13,32 @@ header h1{margin:0;font-size:1.5rem}
 .list{list-style:none;padding:0;margin:0;display:grid;gap:10px}
 .listItem{background:var(--card);padding:12px;border-radius:8px;box-shadow:0 1px 2px rgba(16,24,40,0.04)}
 .listItem .title{font-weight:600;text-decoration:none;color:var(--accent)}
+.listItem .title:hover{text-decoration:underline}
 .meta{margin-top:6px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .url{font-size:0.9rem;color:#374151}
 .badge{background:#f3f4f6;padding:4px 8px;border-radius:999px;font-size:0.8rem}
 .foot{margin-top:20px;text-align:center}
+
+/* Navigation styles */
+.nav-links{margin-top:12px}
+.nav-link{display:inline-block;padding:8px 16px;background:var(--accent);color:white;text-decoration:none;border-radius:6px;font-size:0.9rem;transition:background 0.2s}
+.nav-link:hover{background:#1d4ed8}
+
+/* Test page styles */
+.test-section{margin:24px 0;padding:20px;background:var(--card);border-radius:8px;box-shadow:0 1px 2px rgba(16,24,40,0.04)}
+.test-section h2{margin:0 0 16px 0;font-size:1.2rem;color:var(--accent)}
+.counter-display p{font-size:1.1rem;margin:0 0 12px 0}
+.button-group{display:flex;gap:8px;flex-wrap:wrap}
+.btn{padding:8px 16px;border-radius:6px;border:none;cursor:pointer;font-size:0.9rem;transition:all 0.2s}
+.btn-primary{background:var(--accent);color:white}
+.btn-primary:hover{background:#1d4ed8}
+.btn-secondary{background:#6b7280;color:white}
+.btn-secondary:hover{background:#4b5563}
+.btn-outline{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.btn-outline:hover{background:var(--accent);color:white}
+.input-group{margin:12px 0}
+.input-field{width:100%;max-width:300px;padding:10px;border-radius:6px;border:1px solid #e6e7ee;font-size:1rem}
+.output{margin:8px 0;color:var(--muted)}
+.feature-list{list-style:none;padding:0;margin:12px 0}
+.feature-list li{margin:6px 0;padding:4px 0}
+.navigation{margin-top:24px;text-align:center}
