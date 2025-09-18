@@ -98,7 +98,7 @@ function LinksPage() {
                             {l.title}
                         </a>
                         <div className="meta">
-                            <span >{l.url}</span>
+                            <p >{l.url}</p>
                             <div className="badges">
                                 {(l.tags || []).map((tg) => (
                                     <span key={tg} className="badge">{tg}</span>
@@ -116,9 +116,9 @@ function LinksPage() {
 
 function App() {
     return (
-        <Router basename="/MFilter">
+        <Router >
             <Routes>
-                <Route path="/" element={<LinksPage />} />
+                <Route  path="/" index element={<LinksPage />} />
                 <Route path="/react" element={<ReactTestPage />} />
             </Routes>
         </Router>
