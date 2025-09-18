@@ -28,7 +28,7 @@ function LinksPage() {
     // Helper function to convert relative URLs to absolute URLs
     const getAbsoluteUrl = (url: string) => {
         if (url.startsWith('/')) {
-            return `${window.location.origin}${"/MFilter"}${url}`
+            return `${window.location.origin}${url}`
         }
         return url
     }
