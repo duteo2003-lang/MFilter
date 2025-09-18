@@ -28,7 +28,7 @@ function LinksPage() {
     // Helper function to convert relative URLs to absolute URLs
     const getAbsoluteUrl = (url: string) => {
         if (url.startsWith('/')) {
-            return `${window.location.origin}${url}`
+            return `${window.location.origin}${"/MFilter"}${url}`
         }
         return url
     }
@@ -116,7 +116,7 @@ function LinksPage() {
 
 function App() {
     return (
-        <Router>
+        <Router basename="/MFilter">
             <Routes>
                 <Route path="/" element={<LinksPage />} />
                 <Route path="/react" element={<ReactTestPage />} />
