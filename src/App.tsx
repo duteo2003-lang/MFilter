@@ -94,7 +94,7 @@ function LinksPage() {
             <ul className="list" role="list">
                 {filtered.map((l: LinkItem) => (
                     <li key={l.id} className="listItem">
-                        <a href={getAbsoluteUrl(l.url)} rel="noopener noreferrer" >
+                        <a href={!l.relative ? getAbsoluteUrl(l.url) : l.url} rel="noopener noreferrer" >
                             {l.title}
                         </a>
                         <div className="meta">
