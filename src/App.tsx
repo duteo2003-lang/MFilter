@@ -1,24 +1,25 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import ReactTestPage from './ReactTestPage'
 
 function Home() {
     const [show, setShow] = useState(false)
     const [candleBlown, setCandleBlown] = useState(false)
-    
+    const ref = useRef<HTMLInputElement>(null)
     const handleBlowCandle = () => {
-        setCandleBlown(true)
-        setTimeout(() => {
-            setShow(true)
-        }, 500)
+        // setCandleBlown(true)
+        // setTimeout(() => {
+        //     setShow(true)
+        // }, 500)
+        ref.current?.focus();
     }
-    
+
     return (
         <div className="flex flex-col items-center justify-center h-screen gap-8 bg-gradient-to-b from-pink-100 to-purple-100 min-h-screen">
             <h1 className="text-3xl font-bold text-purple-800 text-center px-4">
                 Bí mật sẽ hiện ra khi bạn thổi nến 🕯️
             </h1>
-            
+           <input ref={ref} type="text" placeholder="Nhập tên của bạn" />
             {/* Candle Button */}
             <div className="relative flex justify-center">
                 <button 
