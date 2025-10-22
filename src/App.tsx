@@ -5,13 +5,28 @@ import ReactTestPage from './ReactTestPage'
 function Home() {
     const [show, setShow] = useState(false)
     const [candleBlown, setCandleBlown] = useState(false)
+    const [userName, setUserName] = useState('')
+    const [nameEntered, setNameEntered] = useState(false)
     const ref = useRef<HTMLInputElement>(null)
+    
     const handleBlowCandle = () => {
-        // setCandleBlown(true)
-        // setTimeout(() => {
-        //     setShow(true)
-        // }, 500)
         ref.current?.focus();
+    }
+    
+    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            if (userName.trim()) {
+                setNameEntered(true)
+                setCandleBlown(true)
+                setTimeout(() => {
+                    setShow(true)
+                }, 500)
+            }
+        }
+    }
+    
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setUserName(e.target.value)
     }
 
     return (
@@ -19,7 +34,20 @@ function Home() {
             <h1 className="text-3xl font-bold text-purple-800 text-center px-4">
                 Bí mật sẽ hiện ra khi bạn thổi nến 🕯️
             </h1>
-           <input ref={ref} type="text" placeholder="Nhập tên của bạn" />
+            <input 
+                ref={ref} 
+                type="text" 
+                placeholder="Nhập tên của bạn" 
+                value={userName}
+                onChange={handleInputChange}
+                onKeyDown={handleKeyPress}
+                className="px-4 py-2 border-2 border-purple-300 rounded-lg focus:outline-none focus:border-purple-500 text-center text-lg"
+            />
+            {nameEntered && (
+                <div className="text-green-600 font-semibold text-lg animate-pulse">
+                    Bạn đã nhập: {userName} 🎉
+                </div>
+            )}
             {/* Candle Button */}
             <div className="relative flex justify-center">
                 <button 
